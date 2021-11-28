@@ -1,17 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-card *ngFor="let crypto of cryptos" (click)="toTheNews(crypto.name)">
+    <ion-card-header>
+      <div style="display: flex;">
+        <ion-icon src="assets/crypto-svg/{{crypto.symbol.toLowerCase()}}.svg">
+        </ion-icon>
+        <ion-card-subtitle>{{crypto.name}}</ion-card-subtitle>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <b>Preço em Reais: </b>{{crypto.quote.BRL.price | currency}}
+      </p>
+      <p>
+        <b>Mudança da porcentagem em 24h (%): </b>{{crypto.quote.BRL.percent_change_24h | currency}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

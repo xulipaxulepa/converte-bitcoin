@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "converte-bitcoin",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

@@ -1,17 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label position="stacked">Converta um valor em Crypto</ion-label>
+        <ion-label position="stacked">para Reais:</ion-label>
+        <ion-input type='number' [(ngModel)]="valueToConvert" ngDefaultControl></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cryptos</ion-label>
+        <ion-select placeholder="Bitcoin" [(ngModel)]="cryptoToConvert">
+          <ion-select-option *ngFor="let crypto of cryptos" value={{crypto.name}} ngDefaultControl>{{crypto.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="success" (click)='convert()'>Converter</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf='converted'>
+    <ion-card-header>
+      <ion-item>
+        <h1>Resultado:</h1>
+      </ion-item>
+      <ion-item>
+        <p>
+          <b>{{cryptoName}}</b>
+        </p>
+      </ion-item>
+      <ion-item>
+        <p>
+          <b>Preço em Reais de uma unidade de {{cryptoName}}: {{cryptoValue | currency}}</b>
+        </p>
+      </ion-item>
+      <ion-item>
+        <p>
+          <b>Preço em reais de {{valueToConvert}} unidades de {{cryptoName}}: {{convertedValue | currency}}</b>
+        </p>
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="success" (click)='toTheNews()'>Noticias sobre {{cryptoName}}</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

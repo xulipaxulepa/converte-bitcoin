@@ -1,5 +1,7 @@
 {
-  "name": "converte bitcoin",
-  "integrations": {},
+  "name": "converte-bitcoin",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
