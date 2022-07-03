@@ -18,7 +18,7 @@ export class Tab2Page {
     this.storageService.get('crypto').then((data)=>{
       this.loaderService.hideLoader();
       // eslint-disable-next-line @typescript-eslint/dot-notation
-      this.cryptos = data['data'];
+      this.cryptos = data;
       console.log(this.cryptos);
     });
   }

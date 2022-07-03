@@ -4,17 +4,17 @@
   <ion-card *ngFor="let crypto of cryptos" (click)="toTheNews(crypto.name)">
     <ion-card-header>
       <div style="display: flex;">
-        <ion-icon src="assets/crypto-svg/{{crypto.symbol.toLowerCase()}}.svg">
+        <ion-icon src="assets/crypto-svg/{{crypto.code?.toLowerCase()}}.svg">
         </ion-icon>
-        <ion-card-subtitle>{{crypto.name}}</ion-card-subtitle>
+        <ion-card-subtitle>&nbsp;{{crypto.name}}</ion-card-subtitle>
       </div>
     </ion-card-header>
     <ion-card-content>
       <p>
-        <b>Preço em Reais: </b>{{crypto.quote.BRL.price | currency}}
+        <b>Preço em Reais: </b>{{crypto.priceBRL | currency}}
       </p>
       <p>
-        <b>Mudança da porcentagem em 24h (%): </b>{{crypto.quote.BRL.percent_change_24h | currency}}
+        <b>Mudança da porcentagem em 24h (%): </b>{{crypto.percentage | currency}}
       </p>
     </ion-card-content>
   </ion-card>

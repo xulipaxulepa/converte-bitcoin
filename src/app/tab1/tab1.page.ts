@@ -20,24 +20,80 @@ export class Tab1Page {
 
   ionViewDidEnter(){
     this.converted = false;
-    this.cryptoToConvert = 'Bitcoin';
+    /*this.cryptoToConvert = 'Bitcoin';
     this.apiService.getCryptos().subscribe((data)=>{
       this.storageService.set('crypto', data);
       // eslint-disable-next-line @typescript-eslint/dot-notation
       this.cryptos = data['data'];
       console.log(this.cryptos);
-    });
+    });*/
+    this.cryptos = [
+      {
+        name: 'Bitcoin',
+        code: 'BTC',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'Ethereum',
+        code: 'ETH',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'Tether',
+        code: 'USDT',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'USD Coin',
+        code: 'USDC',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'Binance Coin',
+        code: 'BNB',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'Binance USD',
+        code: 'BUSD',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'XRP',
+        code: 'XRP',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'Cardano',
+        code: 'ADA',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'Solana',
+        code: 'SOL',
+        priceBRL: 0,
+        percentage: 0
+      },
+      {
+        name: 'Dogecoin',
+        code: 'DOGE',
+        priceBRL: 0,
+        percentage: 0
+      },
+    ];
+    this.storageService.set('crypto', this.cryptos);
   }
 
   convert() {
-    this.cryptoName = this.cryptoToConvert;
-    this.cryptos.forEach(element => {
-      if(element.name === this.cryptoToConvert){
-        this.converted = true;
-        this.cryptoValue = element.quote.BRL.price;
-        this.convertedValue = element.quote.BRL.price * this.valueToConvert;
-      }
-    });
+    console.log('Chamar a api para converter');
   }
 
   toTheNews() {
