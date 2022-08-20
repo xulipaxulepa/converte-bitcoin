@@ -16,20 +16,8 @@ export class ApiService {
     return this.httpClient.get(`https://newsapi.org/v2/everything?q=${name}&apiKey=${this.apiKeyNews}`);
   }
 
-  getCryptos(){
-    const headers = new Headers();
-    headers.append('Access-Control-Allow-Origin' , '*');
-    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
-    headers.append('Accept','application/json');
-    headers.append('content-type','application/json');
-     // eslint-disable-next-line object-shorthand
-     const postData = {
-      CMC_PRO_API_KEY: this.apiKeyCryptos
-};
+  getCryptos(cryptoCode){
    // eslint-disable-next-line max-len
-   return this.httpClient.get(`https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&limit=5000&convert=BRL`,  {headers: {
-    'X-CMC_PRO_API_KEY': `${this.apiKeyCryptos}`,
-    'Access-Control-Allow-Origin': '*'
-  }});
+   return this.httpClient.get(`https://www.mercadobitcoin.net/api/${cryptoCode}/ticker/`);
   }
 }

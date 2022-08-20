@@ -32,67 +32,65 @@ export class Tab1Page {
         name: 'Bitcoin',
         code: 'BTC',
         priceBRL: 0,
-        percentage: 0
+        highest: 0
       },
       {
         name: 'Ethereum',
         code: 'ETH',
         priceBRL: 0,
-        percentage: 0
-      },
-      {
-        name: 'Tether',
-        code: 'USDT',
-        priceBRL: 0,
-        percentage: 0
+        highest: 0
       },
       {
         name: 'USD Coin',
         code: 'USDC',
         priceBRL: 0,
-        percentage: 0
-      },
-      {
-        name: 'Binance Coin',
-        code: 'BNB',
-        priceBRL: 0,
-        percentage: 0
-      },
-      {
-        name: 'Binance USD',
-        code: 'BUSD',
-        priceBRL: 0,
-        percentage: 0
+        highest: 0
       },
       {
         name: 'XRP',
         code: 'XRP',
         priceBRL: 0,
-        percentage: 0
+        highest: 0
       },
       {
         name: 'Cardano',
         code: 'ADA',
         priceBRL: 0,
-        percentage: 0
+        highest: 0
       },
       {
         name: 'Solana',
         code: 'SOL',
         priceBRL: 0,
-        percentage: 0
+        highest: 0
       },
       {
         name: 'Dogecoin',
         code: 'DOGE',
         priceBRL: 0,
-        percentage: 0
+        highest: 0
       },
     ];
+    this.cryptoToConvert = this.cryptos[0].name;
     this.storageService.set('crypto', this.cryptos);
   }
 
   convert() {
+    console.log(this.cryptoToConvert);
+    let cryptoCode = '';
+    this.cryptos.forEach(crypto => {
+      if(crypto.name === this.cryptoToConvert) {
+        cryptoCode = crypto.code;
+        this.cryptoName = crypto.name;
+      }
+    });
+    this.apiService.getCryptos(cryptoCode).subscribe((data: any) => {
+      console.log(data.ticker.last);
+      this.converted = true;
+      this.cryptoValue = data.ticker.last;
+      const convertedValue = this.valueToConvert * data.ticker.last;
+      this.convertedValue = convertedValue;
+    });
     console.log('Chamar a api para converter');
   }
 
