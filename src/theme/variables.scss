@@ -85,6 +85,10 @@
     --ion-color-base-tint: var(--ion-color-header-tint);
   }
 
+  --highlight-color-focused: var(--ion-color-primary, #de0040) !important;
+  --highlight-color-valid: var(--ion-color-success, #de0040) !important;
+  --highlight-color-invalid: var(--ion-color-danger, #de0040) !important;
+
   /** dark **/
   --ion-color-dark: #000000;
   --ion-color-dark-rgb: 34, 36, 40;
