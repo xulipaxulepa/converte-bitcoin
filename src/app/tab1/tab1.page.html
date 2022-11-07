@@ -3,13 +3,13 @@
     <ion-card-header>
       <ion-item class="ion-margin-top">
         <ion-label class="margin-bottom" position="stacked">Converter Crypto em Reais:</ion-label>
-        <ion-input class="ion-padding-top" type='number' placeholder="R$ 1000" [(ngModel)]="valueToConvert"
+        <ion-input class="ion-padding-top" type='number' placeholder="R$ 1.000" [(ngModel)]="valueToConvert"
           ngDefaultControl></ion-input>
       </ion-item>
 
       <ion-item class="ion-margin-top">
         <ion-label class="ion-text-uppercase">Cryptos</ion-label>
-        <ion-select placeholder="Bitcoin" [(ngModel)]="cryptoToConvert">
+        <ion-select class="ion-text-uppercase" placeholder="Bitcoin" [(ngModel)]="cryptoToConvert">
           <ion-select-option *ngFor="let crypto of cryptos" value={{crypto.name}} ngDefaultControl>{{crypto.name}}
           </ion-select-option>
         </ion-select>
