@@ -1,20 +1,22 @@
 <ion-content [fullscreen]="true">
   <ion-card>
     <ion-card-header>
-      <ion-item>
-        <ion-label position="stacked">Converta um valor em Crypto</ion-label>
-        <ion-label position="stacked">para Reais:</ion-label>
-        <ion-input type='number' [(ngModel)]="valueToConvert" ngDefaultControl></ion-input>
+      <ion-item class="ion-margin-top">
+        <ion-label class="margin-bottom" position="stacked">Converter Crypto em Reais:</ion-label>
+        <ion-input class="ion-padding-top" type='number' placeholder="R$ 1000" [(ngModel)]="valueToConvert"
+          ngDefaultControl></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label>Cryptos</ion-label>
+
+      <ion-item class="ion-margin-top">
+        <ion-label class="ion-text-uppercase">Cryptos</ion-label>
         <ion-select placeholder="Bitcoin" [(ngModel)]="cryptoToConvert">
-          <ion-select-option *ngFor="let crypto of cryptos" value={{crypto.name}} ngDefaultControl>{{crypto.name}}</ion-select-option>
+          <ion-select-option *ngFor="let crypto of cryptos" value={{crypto.name}} ngDefaultControl>{{crypto.name}}
+          </ion-select-option>
         </ion-select>
       </ion-item>
     </ion-card-header>
     <ion-card-content>
-      <ion-button color="success" (click)='convert()'>Converter</ion-button>
+      <ion-button color="bitcoin" (click)='convert()'>Converter</ion-button>
     </ion-card-content>
   </ion-card>
   <ion-card *ngIf='converted'>
@@ -29,17 +31,30 @@
       </ion-item>
       <ion-item>
         <p>
-          <b>Preço em Reais de uma unidade de {{cryptoName}}: {{cryptoValue | currency}}</b>
+          <b>Preço em Reais de uma unidade de {{cryptoName}}:</b>
+          <ion-text color="bitcoin">
+            <h1>
+              {{cryptoValue | currency}}
+            </h1>
+          </ion-text>
         </p>
       </ion-item>
       <ion-item>
         <p>
-          <b>Preço em Reais de {{valueToConvert}} unidades de {{cryptoName}}: {{convertedValue | currency}}</b>
+          <b>Preço em Reais de {{valueToConvert}} unidades de {{cryptoName}}: </b>
+          <ion-text color="bitcoin">
+            <h1>
+              {{convertedValue | currency}}
+            </h1>
+          </ion-text>
         </p>
+
+
+
       </ion-item>
     </ion-card-header>
     <ion-card-content>
-      <ion-button color="success" (click)='toTheNews()'>Noticias sobre {{cryptoName}}</ion-button>
+      <ion-button color="bitcoin" (click)='toTheNews()'>Notícias sobre {{cryptoName}}</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

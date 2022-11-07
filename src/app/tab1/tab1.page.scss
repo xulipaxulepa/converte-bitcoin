@@ -1,3 +1,15 @@
 ion-content {
-  --background: #a7b5a7; // Replace this with color of your choice
+  --background: #ffffff; // Replace this with color of your choice
+}
+
+ion-card {
+  --background: #000000;
+  border-radius: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+ion-label {
+  font-size: 22px !important;
+  --background: #000000;
 }

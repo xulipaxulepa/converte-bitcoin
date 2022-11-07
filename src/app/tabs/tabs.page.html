@@ -1,13 +1,12 @@
-
 <ion-tabs>
   <ion-header class="ion-no-border">
-    <ion-toolbar color="success">
+    <ion-toolbar color="bitcoin ion-text-uppercase">
       <ion-title>
         {{pageName}}
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-tab-bar slot="top" color="success">
+  <ion-tab-bar slot="top" color="bitcoin">
     <ion-tab-button tab="tab1" (click)="changeName('Convert')">
       <ion-label>Converter</ion-label>
     </ion-tab-button>
@@ -17,7 +16,7 @@
     </ion-tab-button>
 
     <ion-tab-button tab="tab3/crypto" (click)="changeName('News')">
-      <ion-label>Noticias</ion-label>
+      <ion-label>Notícias</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 
